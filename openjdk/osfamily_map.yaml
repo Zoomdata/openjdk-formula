@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# vim: ft=sls
+
+Debian:
+  pkg: default-jre-headless
+
+RedHat:
+  pkg: java-1.8.0-openjdk
+
+default:
+  pkg: java

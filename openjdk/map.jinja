@@ -1,0 +1,9 @@
+{% import_yaml 'openjdk/osfamily_map.yaml' as osfamily_map %}
+
+{# Merge Pillar items with OS defaults #}
+{% set openjdk = salt['grains.filter_by'](
+    osfamily_map,
+    grain='os_family',
+    merge=salt['pillar.get']('openjdk', {}),
+    default='default',
+) %}
