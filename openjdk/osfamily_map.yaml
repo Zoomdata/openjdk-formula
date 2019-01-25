@@ -7,10 +7,13 @@ Debian:
   repo_name: jessie-backports
   repo_entry: 'deb http://deb.debian.org/debian %(repo_name)s main'
   {%- endif %}
+  java_home:  /usr/lib/jvm/java-8-openjdk-{{ grains['osarch'] }}/jre
 
 RedHat:
   pkg: java-1.8.0-openjdk-headless
+  java_home: /usr/lib/jvm/jre-1.8.0-openjdk.{{ grains['osarch'] }}
 
 default:
   # Just a fallback
   pkg: java
+  set_java_home: True
