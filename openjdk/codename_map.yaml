@@ -1,0 +1,12 @@
+wheezy:
+  # Fallback to default JRE package on Debian ELTS.
+  # That is going to be OpenJDK 7.
+  pkg: default-jre-headless
+jessie:
+  # Use backports for Debian old stable
+  repo_name: jessie-backports
+  repo_entry: 'deb http://deb.debian.org/debian %(repo_name)s main'
+trusty:
+  repo_name: trusty
+  # OpenJDK builds PPA
+  repo_ppa: openjdk-r/ppa
