@@ -8,7 +8,7 @@
     merge=salt['grains.filter_by'](
         codename_map,
         grain='oscodename',
-        merge=salt['pillar.get']('openjdk', {})
+        merge=salt['pillar.get']('openjdk', {}),
     ),
-    default='default',
+    base='default',
 ) %}
