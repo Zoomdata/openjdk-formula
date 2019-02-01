@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml sts=2 sw=2 et
+
+# OpenJDK formula Pillar example
+# ==============================
+
+openjdk:
+  # OpenJDK package name to install. By default this is OS specific
+  # headless JRE 8 package.
+  pkg: java-1.8.0-openjdk  # this is full JDK for CentOS/RedHat
+
+  # Additional repository to configure for Debian and derivatives
+  #repo_name: openjdk-archive  # just the repo identifier
+  # Raw string to add to sources list for ``apt``, like backports
+  #repo_entry: 'deb http://deb.debian.org/debian jessie main'
+  # PPA (Personal Package Archive) is for Ubuntu
+  #repo_ppa: openjdk-r/ppa
+
+  # Define and set ``JAVA_HOME`` system-wide environment variable
+  java_home: /usr/lib/jvm/jre-1.8.0-openjdk  # for CentOS/RedHat 7
+  # If set ``True`` (by default) the variable will be added to
+  # ``/etc/envrionment`` file
+  set_java_home: True
