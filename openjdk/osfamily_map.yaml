@@ -3,10 +3,6 @@
 
 Debian:
   pkg: openjdk-8-jre-headless
-  {%- if grains['oscodename'] == 'jessie' %}
-  repo_name: jessie-backports
-  repo_entry: 'deb http://deb.debian.org/debian %(repo_name)s main'
-  {%- endif %}
   java_home:  /usr/lib/jvm/java-8-openjdk-{{ grains['osarch'] }}/jre
 
 RedHat:
