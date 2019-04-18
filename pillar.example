@@ -12,9 +12,14 @@ openjdk:
   # Additional repository to configure for Debian and derivatives
   #repo_name: openjdk-archive  # just the repo identifier
   # Raw string to add to sources list for ``apt``, like backports
-  #repo_entry: 'deb http://deb.debian.org/debian jessie main'
+  #repo_entry: deb http://archive.debian.org/debian/ jessie-backports main
   # PPA (Personal Package Archive) is for Ubuntu
   #repo_ppa: openjdk-r/ppa
+  # Custom configuration options to be added for APT
+  #apt_config:
+  #  # Ignore expiry date, since backports are no longer updated
+  #  90ignore-release-date:
+  #    - 'Acquire::Check-Valid-Until "false";'
 
   # Define and set ``JAVA_HOME`` system-wide environment variable
   java_home: /usr/lib/jvm/jre-1.8.0-openjdk  # for CentOS/RedHat 7
