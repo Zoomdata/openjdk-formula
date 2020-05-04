@@ -1,5 +1,12 @@
+{% if salt['pillar.get']('openjdk:version', 8) == 11 %}
+{% import_yaml 'openjdk/osfamily_map_jdk11.yaml' as osfamily_map %}
+{% import_yaml 'openjdk/codename_map_jdk11.yaml' as codename_map %}
+{% set pillar_section_name = "openjdk:openjdk11" %}
+{% else %}
 {% import_yaml 'openjdk/osfamily_map.yaml' as osfamily_map %}
 {% import_yaml 'openjdk/codename_map.yaml' as codename_map %}
+{% set pillar_section_name = "openjdk:openjdk8" %}
+{% endif %}
 
 {# Merge Pillar items with OS defaults #}
 {% set openjdk = salt['grains.filter_by'](
@@ -8,7 +15,7 @@
     merge=salt['grains.filter_by'](
         codename_map,
         grain='oscodename',
-        merge=salt['pillar.get']('openjdk', {}),
+        merge=salt['pillar.get'](pillar_section_name, {}),
     ),
     base='default',
 ) %}
