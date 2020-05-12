@@ -1,6 +1,10 @@
 openjdk-formula
 ===============
 
+2020.05.04
+
+- Implement OpenJDK11 support
+
 2019.04.18
 
 - Fix installation on Debian 7 "wheezy" (ELTS release) which was moved to the
