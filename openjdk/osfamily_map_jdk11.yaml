@@ -6,7 +6,7 @@ Debian:
   java_home: /usr/lib/jvm/java-11-openjdk-{{ grains['osarch'] }}/
 
 RedHat:
-  pkg: java-11-openjdk-headless
+  pkg: {{ 'java-11-amazon-corretto-headless' if grains['osfinger'] == 'Amazon Linux-2' else 'java-11-openjdk-headless' }}
   java_home: /usr/lib/jvm/jre-11-openjdk/
 
 default:
