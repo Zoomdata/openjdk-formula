@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+# vim: ft=sls
+
+Debian:
+  pkg: openjdk-17-jdk-headless
+  java_home: /usr/lib/jvm/java-17-openjdk-{{ grains['osarch'] }}/
+  set_java_home: True
+
+RedHat:
+  pkg: {{ 'java-17-amazon-corretto-headless' if grains['osfinger'] == 'Amazon Linux-2' else 'java-17-openjdk-headless' }}
+  java_home: /usr/lib/jvm/jre-17-openjdk/
+  set_java_home: True
+
+default:
+  # Just a fallback
+  pkg: java-17-openjdk
+  set_java_home: True

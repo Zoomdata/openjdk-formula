@@ -1,4 +1,8 @@
-{% if salt['pillar.get']('openjdk:version', 8) == 11 %}
+{% if salt['pillar.get']('openjdk:version', 11) == 17 %}
+{% import_yaml 'openjdk/osfamily_map_jdk17.yaml' as osfamily_map %}
+{% import_yaml 'openjdk/codename_map_jdk17.yaml' as codename_map %}
+{% set pillar_section_name = "openjdk:openjdk17" %}
+{% elif salt['pillar.get']('openjdk:version', 11) == 11 %}
 {% import_yaml 'openjdk/osfamily_map_jdk11.yaml' as osfamily_map %}
 {% import_yaml 'openjdk/codename_map_jdk11.yaml' as codename_map %}
 {% set pillar_section_name = "openjdk:openjdk11" %}
