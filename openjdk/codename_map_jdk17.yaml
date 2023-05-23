@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+# vim: ft=sls
+
+# Ubuntu 18
+xenial:
+  repo_name: {{ grains['oscodename'] }}
+  # OpenJDK builds PPA
+  repo_ppa: openjdk-r/ppa
+  pkg: openjdk-17-jdk-headless
+
+# CentOS 7
+CentOS Linux 7 (Core):
+  java_home: /usr/lib/jvm/java-17-amazon-corretto
+  repo_name: aws-corretto
+  repo_base_url: https://yum.corretto.aws/$basearch
+  repo_key_url: https://yum.corretto.aws/corretto.key
+  pkg: java-17-amazon-corretto-devel
+
+#RHEL 7
+Maipo:
+  java_home: /usr/lib/jvm/java-17-amazon-corretto
+  repo_name: aws-corretto
+  repo_base_url: https://yum.corretto.aws/$basearch
+  repo_key_url: https://yum.corretto.aws/corretto.key
+  pkg: java-17-amazon-corretto-devel
