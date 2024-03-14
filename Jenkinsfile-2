@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Validate') {
+            steps {
+                echo 'Validating..'
+            }
+        }
+        stage('Compare') {
+            steps {
+                echo 'Compating..'
+            }
+        }
+        stage('Release') {
+            steps {
+                echo 'Releaseing....'
+            }
+        }
+    }
+}
