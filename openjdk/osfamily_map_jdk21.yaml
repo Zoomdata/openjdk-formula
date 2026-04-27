@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+# vim: ft=sls
+
+Debian:
+  pkg: openjdk-21-jdk-headless
+  java_home: /usr/lib/jvm/java-21-openjdk-{{ grains['osarch'] }}/
+  set_java_home: True
+
+RedHat:
+  pkg: {{ 'java-21-amazon-corretto-headless' if grains['osfinger'] == 'Amazon Linux-2' else 'java-21-openjdk-headless' }}
+  java_home: /usr/lib/jvm/jre-21-openjdk/
+  set_java_home: True
+
+default:
+  # Just a fallback
+  pkg: java-21-openjdk
+  set_java_home: True
